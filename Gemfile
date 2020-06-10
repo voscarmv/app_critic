@@ -22,6 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'image_processing'
 gem 'cloudinary'
+gem 'figaro'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
