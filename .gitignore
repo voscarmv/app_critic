@@ -40,6 +40,5 @@
 yarn-debug.log*
 .yarn-integrity
 
-/config/cloudinary.yml
 # Ignore application configuration
 /config/application.yml
