@@ -15,4 +15,12 @@ module ApplicationHelper
       gravatar_image_url(user.email, size: size)
     end
   end
+
+  def user_cover(user)
+    if user.cover.attached?
+      user.cover.variant(resize: "600x200!")
+    else
+      "default_cover.jpeg"
+    end
+  end
 end
