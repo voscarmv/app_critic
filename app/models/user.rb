@@ -3,6 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :avatar
-  has_one_attached :cover
+
+  has_many :followers, foreign_key: :followedid, class_name: :Following
+  has_many :follower_users, through: :followers
+
+  has_many :followeds, foreign_key: :followerid, class_name: :Following
+  has_many :followed_users, through: :followeds
+
+  has_one_attached :photo
+  has_one_attached :coverimage
 end

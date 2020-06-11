@@ -9,16 +9,16 @@ module ApplicationHelper
   end
 
   def user_avatar(user, size=40)
-    if user.avatar.attached?
-      user.avatar.variant(resize: "#{size}x#{size}!")
+    if user.photo.attached?
+      user.photo.variant(resize: "#{size}x#{size}!")
     else
       gravatar_image_url(user.email, size: size)
     end
   end
 
   def user_cover(user)
-    if user.cover.attached?
-      user.cover.variant(resize: "600x200!")
+    if user.coverimage.attached?
+      user.coverimage.variant(resize: "600x200!")
     else
       "default_cover.jpeg"
     end
