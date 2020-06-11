@@ -15,6 +15,8 @@ class OpinionsController < ApplicationController
   # GET /opinions/new
   def new
     @opinion = Opinion.new
+    @opinions = Opinion.all
+    @whotofollow = current_user.whotofollows
   end
 
   # GET /opinions/1/edit

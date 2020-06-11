@@ -12,4 +12,8 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_one_attached :coverimage
+
+  def whotofollows
+    User.where("id NOT IN (#{(self.followed_users.pluck('id') << self.id).join(', ')})")
+  end
 end
