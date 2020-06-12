@@ -16,7 +16,7 @@
         <aside>
           <% if current_user %>
             <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
-            <%= current_user.email %>
+            <%= link_to current_user.email, root_path %>
           <% end %>
         </aside>
       </div>

@@ -14,9 +14,10 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/new
   def new
-    @opinion = Opinion.new
+    @opinion = Opinion.new(authorid: current_user.id)
     @opinions = Opinion.all
     @whotofollow = current_user.whotofollows
+    @whoifollow = current_user.followed_users
   end
 
   # GET /opinions/1/edit
@@ -30,7 +31,7 @@ class OpinionsController < ApplicationController
 
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Opinion was successfully created.' }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
@@ -71,6 +72,6 @@ class OpinionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def opinion_params
-      params.require(:opinion).permit(:content, :user_id_id)
+      params.require(:opinion).permit(:text, :authorid)
     end
 end

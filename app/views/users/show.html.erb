@@ -1,0 +1,19 @@
+
+    <div class="col-8 bg-2 overflow-auto p-0">
+      <main class="bg-1 position-absolute w-100 p-5">
+        <%= image_tag user_cover(@user), size: "600x200" %>
+      </main>
+    </div>
+    <div class="col-4 bg-4 overflow-auto p-0">
+      <aside class="bg-2 position-absolute w-100 p-5">
+        <%= image_tag user_avatar(@user, 100), class: "rounded-circle" %>
+        <%= @user.email %>
+
+        <% if @user.follower_users.where(id: current_user.id).count > 0 %>
+          <%= link_to "Unfollow #{@user.email}", Following.find_by(followerid: current_user.id, followedid: @user.id), method: :delete %>
+        <% else %>
+          <%= link_to "Follow #{@user.email}", followings_path(following: {followerid: current_user.id, followedid: @user.id }), method: :post, class: "btn btn-primary btn-sm text-white" %>
+        <% end %>
+
+      </aside>
+    </div>

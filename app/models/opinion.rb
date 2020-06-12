@@ -1,3 +1,3 @@
 class Opinion < ApplicationRecord
-  belongs_to :user_id
+  belongs_to :author, foreign_key: "authorid", class_name: "User"
 end

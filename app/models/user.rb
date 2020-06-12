@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :opinions, foreign_key: "authorid", class_name: "Opinion"  
+
   has_many :followers, foreign_key: :followedid, class_name: :Following
   has_many :follower_users, through: :followers
 

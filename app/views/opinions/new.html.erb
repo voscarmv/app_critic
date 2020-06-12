@@ -1,7 +1,8 @@
 
     <div class="col-8 bg-2 overflow-auto p-0">
       <main class="bg-1 position-absolute w-100 p-5">
-        <p id="notice"><%= notice %></p>
+
+        <%= image_tag user_cover(current_user), size: "600x200" %>
 
         <h1> Write a review </h1>
         <%= render 'form', opinion: @opinion %>
@@ -18,8 +19,8 @@
           <tbody>
             <% @opinions.each do |opinion| %>
               <tr>
-                <td><%= opinion.content %></td>
-                <td><%= opinion.user_id_id %></td>
+                <td><%= opinion.text %></td>
+                <td><%= opinion.author.email %></td>
                 <td><%= link_to 'Show', opinion %></td>
                 <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
                 <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,10 +30,6 @@
         </table>
         <br>
         <%= link_to 'New Opinion', new_opinion_path %>
-        h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>
-        h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>
-        h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>
-        h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>h<br>
       </main>
     </div>
     <div class="col-4 bg-4 overflow-auto p-0">
@@ -40,6 +37,12 @@
         <h1>Who to follow</h1>
         <ul>
         <% @whotofollow.each do |user| %>
+          <li><%= link_to user.email, user %></li>
+        <% end %>
+        </ul>
+        <h2>People you follow</h2>
+        <ul>
+        <% @whoifollow.each do |user| %>
           <li><%= link_to user.email, user %></li>
         <% end %>
         </ul>

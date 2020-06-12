@@ -28,7 +28,7 @@ class FollowingsController < ApplicationController
 
     respond_to do |format|
       if @following.save
-        format.html { redirect_to @following, notice: 'Following was successfully created.' }
+        format.html { redirect_to user_path(@following.followed_user), notice: 'Following was successfully created.' }
         format.json { render :show, status: :created, location: @following }
       else
         format.html { render :new }
@@ -54,9 +54,10 @@ class FollowingsController < ApplicationController
   # DELETE /followings/1
   # DELETE /followings/1.json
   def destroy
+    unfollowed = @following.followed_user
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
+      format.html { redirect_to user_path(unfollowed), notice: 'Following was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class FollowingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def following_params
-      params.require(:following).permit(:Followerid, :Followedid)
+      params.require(:following).permit(:followerid, :followedid)
     end
 end
