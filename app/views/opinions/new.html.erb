@@ -1,5 +1,4 @@
 
-
     <div class="col-8 bg-2 overflow-auto p-0">
       <main class="bg-1 position-absolute w-100 p-5">
         <p id="notice"><%= notice %></p>
@@ -41,7 +40,7 @@
         <h1>Who to follow</h1>
         <ul>
         <% @whotofollow.each do |user| %>
-          <li><%= user.email %></li>
+          <li><%= link_to user.email, user %></li>
         <% end %>
         </ul>
       </aside>

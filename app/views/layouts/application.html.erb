@@ -14,8 +14,10 @@
     <div class="row bg-2 flex-fill d-flex justify-content-start">
       <div class="col-2 bg-3">
         <aside>
-          <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
-          <%= current_user.email %>
+          <% if current_user %>
+            <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
+            <%= current_user.email %>
+          <% end %>
         </aside>
       </div>
       <div class="col-10 bg-1 d-flex h-100 flex-column">
