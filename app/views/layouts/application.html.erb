@@ -12,13 +12,13 @@
 
   <div class="container-fluid bg-1 d-flex h-100 flex-column">
     <div class="row bg-2 flex-fill d-flex justify-content-start">
-      <div class="col-2 bg-3">
+      <div class="col-2 bg-left-aside">
         <aside>
           <% if current_user %>
             <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
             <%= link_to current_user.email, root_path %>
             <ul>
-              <li><%= link_to "READ APP REVIEWS", apps_path %></li>
+              <li><%= link_to "APP REVIEWS", apps_path %></li>
               <li><%= link_to "RATE AN APP", root_path%></li>
               <li><%= link_to "ADD AN APP", new_app_path %></li>
             </ul>
@@ -27,7 +27,7 @@
       </div>
       <div class="col-10 bg-1 d-flex h-100 flex-column">
         <div class="row bg-5">
-          <div class="col-12 bg-6">
+          <div class="col-12 bg-nav">
             <nav>
               <ul>
               <% if user_signed_in? %>
@@ -48,7 +48,7 @@
             </nav>
           </div>
         </div>
-        <div class="row bg-6 flex-fill d-flex justify-content-start">
+        <div class="row bg-6 flex-fill d-flex justify-content-start bg-main">
           <%= yield %>
         </div>
       </div>

@@ -35,10 +35,44 @@
   background-color: #f0f;
  }
 
+/*
+
+nav gradient
+nav bottom bg #4199D9
+nav top bg #5DAEED
+
+left aside #213246
+
+background #F5F6F8
+
+*/
+
  html,body,.height-100{
   height:100%;
 }
 
 .flex-fill {
   flex: 1;
+}
+
+.bg-nav {
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(93,174,237,1) 100%);
+}
+
+.bg-left-aside {
+  background-color: #213246;
+}
+
+.bg-main {
+  background-color: #F5F6F8;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.cover-image {
+  width: 100%;
+  height: auto;
 }
