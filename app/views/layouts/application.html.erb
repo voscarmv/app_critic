@@ -18,7 +18,7 @@
             <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
             <%= link_to current_user.email, root_path %>
             <ul>
-              <li><%= link_to "APP REVIEWS", apps_path %></li>
+              <li><i class="fab fa-facebook-f fa-3x mx-2"></i><%= link_to "APP REVIEWS", apps_path %></li>
               <li><%= link_to "RATE AN APP", root_path%></li>
               <li><%= link_to "ADD AN APP", new_app_path %></li>
             </ul>
