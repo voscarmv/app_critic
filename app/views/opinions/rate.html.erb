@@ -1,0 +1,16 @@
+
+    <div class="col-8 bg-2 overflow-auto p-0">
+      <main class="bg-1 position-absolute w-100 p-5">
+
+        <%= image_tag user_cover(current_user), size: "600x200" %>
+
+        <h1> Write a review </h1>
+        <%= render 'rating_form', opinion: @opinion %>
+
+      </main>
+    </div>
+    <div class="col-4 bg-4 overflow-auto p-0">
+      <aside class="bg-2 position-absolute w-100 p-5">
+
+      </aside>
+    </div>

@@ -17,6 +17,11 @@
           <% if current_user %>
             <%= image_tag user_avatar(current_user, 100), class: "rounded-circle" %>
             <%= link_to current_user.email, root_path %>
+            <ul>
+              <li><%= link_to "READ APP REVIEWS", apps_path %></li>
+              <li><%= link_to "RATE AN APP", root_path%></li>
+              <li><%= link_to "ADD AN APP", new_app_path %></li>
+            </ul>
           <% end %>
         </aside>
       </div>
