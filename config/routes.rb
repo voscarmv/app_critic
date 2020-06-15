@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :apps
   get 'users/show'
   resources :followings
   devise_for :users

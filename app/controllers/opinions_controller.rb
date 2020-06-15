@@ -15,7 +15,8 @@ class OpinionsController < ApplicationController
   # GET /opinions/new
   def new
     @opinion = Opinion.new(authorid: current_user.id)
-    @opinions = Opinion.all
+    @opinions = Opinion.includes(:author).all
+    @apps = App.all
     @whotofollow = current_user.whotofollows
     @whoifollow = current_user.followed_users
   end
@@ -72,6 +73,6 @@ class OpinionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def opinion_params
-      params.require(:opinion).permit(:text, :authorid)
+      params.require(:opinion).permit(:text, :authorid, :app_id, :sentiment)
     end
 end

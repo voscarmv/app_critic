@@ -12,18 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :app_id %>
-    <%= form.select :app_id, @apps.collect { |app| [app.name, app.id] } %>
-  </div>
-
-  <div class="field">
-    <%= form.radio_button(:sentiment, true) %>
-    <%= form.label(:sentiment_true, "Positive") %>
-    <%= form.radio_button(:sentiment, false) %>
-    <%= form.label(:sentiment_false, "Negative") %>
-  </div>
-
-  <div class="field">
     <%= form.label :text %>
     <%= form.text_area :text %>
   </div>

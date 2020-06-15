@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_203111) do
+ActiveRecord::Schema.define(version: 2020_06_15_161354) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_06_11_203111) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "apps", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "followings", force: :cascade do |t|
     t.integer "followerid"
     t.integer "followedid"
@@ -47,6 +55,9 @@ ActiveRecord::Schema.define(version: 2020_06_11_203111) do
     t.text "authorid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "app_id"
+    t.boolean "sentiment", default: true
+    t.index ["app_id"], name: "index_opinions_on_app_id"
     t.index ["authorid"], name: "index_opinions_on_authorid"
   end
 
@@ -63,4 +74,5 @@ ActiveRecord::Schema.define(version: 2020_06_11_203111) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "opinions", "apps"
 end
