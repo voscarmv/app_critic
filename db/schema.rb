@@ -34,16 +34,16 @@ ActiveRecord::Schema.define(version: 2020_06_16_134002) do
   end
 
   create_table "apps", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.text "description"
+    t.string "name", null: false
+    t.string "url", null: false
+    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "followings", force: :cascade do |t|
-    t.integer "followerid"
-    t.integer "followedid"
+    t.integer "followerid", null: false
+    t.integer "followedid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followedid"], name: "index_followings_on_followedid"
