@@ -6,7 +6,7 @@ This is an MVP version of twitter. I've adapted it to share opinion about specif
 
 # Video Presentation
 
-[![video](screenshots/video.png)](https://www.loom.com/share/6eb07336320d4518b695d1cc923f4d06)
+Check out the video presentation for this project [here](https://www.youtube.com/watch?v=JRcv-oCJUrU)!
 
 # Screenshots
 
