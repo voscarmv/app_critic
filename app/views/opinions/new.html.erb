@@ -23,7 +23,7 @@
                       <div class="col-1">
                         <%= image_tag user_avatar(opinion.author, 50) %>
                       </div>
-                      <div class="col-11">
+                      <div class="col-11 pl-4">
                         <div class="row">
                           <div class="col-12"><%= opinion.author.email %> <% if opinion.app %> rated <%= opinion.app.name %><% end %></div>
                         </div>
@@ -33,7 +33,6 @@
                         <div class="row">
                           <div class="col-12"><%= opinion.text %></div>
                         </div>
-
                       </div>
                     </div>
                   </div>
@@ -46,13 +45,13 @@
     </div>
     <div class="col-4 overflow-auto p-0">
       <aside class="position-absolute w-100 p-5">
-        <h1>Who to follow</h1>
+        <h5 class="text-uppercase font-weight-bold text-secondary">Who to follow</h5>
         <ul>
         <% @whotofollow.each do |user| %>
           <li><%= link_to user.email, user %></li>
         <% end %>
         </ul>
-        <h2>People you follow</h2>
+        <h5 class="text-uppercase font-weight-bold text-secondary">People you follow</h5>
         <ul>
         <% @whoifollow.each do |user| %>
           <li><%= link_to user.email, user %></li>
