@@ -35,13 +35,13 @@
               <%= link_to root_path, class: "navbar-brand text-light" do %> <i class="fas fa-user-edit"></i> AppCritic <% end %>
 
               <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
                 <li class="nav-item">
                   <span class="nav-link"><%= notice %></span>
                 </li>
                 <li class="nav-item">
                   <span class="nav-link"><%= alert %></span>
                 </li>
+              <% if user_signed_in? %>
                 <li class="nav-item">
                   <%= link_to edit_user_registration_path, class: "nav-link text-light h6" do %><i class="far fa-id-card"></i> Settings <% end %>
                 </li>
@@ -53,7 +53,7 @@
                   <%= link_to new_user_session_path, class: "nav-link text-light h6" do %> <i class="fas fa-sign-in-alt"></i> Log In <% end %>
                 </li>
                 <li>
-                <%= link_to new_registration_path(resource_name), class: "nav-link text-light h6" do %> <i class="fas fa-user-plus"></i> Sign up <% end %>
+                <%= link_to new_registration_path(resource_name), class: "nav-link text-light h6" do %> <i class="fas fa-user-plus"></i> New account <% end %>
                 </li>
               <% end %>
               </ul>

@@ -2,32 +2,46 @@ require 'rails_helper'
 
 RSpec.describe 'User session actions', type: :feature do
   before :each do
-    User.create(name: 'Oscar', email: 'a@mail.com', password: '123456')
+    User.create(username: 'oscar', email: 'oscar@mail.com', fullname: "Oscar Mier", password: '123456')
   end
 
   scenario 'creating a user' do
     visit new_user_registration_path
-    fill_in 'Name', with: 'Alexis'
     fill_in 'Email', with: 'alexis@mail.com'
+    fill_in 'Username', with: 'alexis'
+    fill_in 'user_fullname', with: 'Alexis Sanchez'
     fill_in 'Password', with: '123123'
     fill_in 'Password confirmation', with: '123123'
     click_on 'Sign up'
     expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 
-  scenario 'creating a user with duplicate name' do
+  scenario 'creating a user with duplicate username' do
     visit new_user_registration_path
-    fill_in 'Name', with: 'Oscar'
-    fill_in 'Email', with: 'a@mail.com'
+    fill_in 'Username', with: 'oscar'
+    fill_in 'user_fullname', with: 'Oscar Mier'
+    fill_in 'Email', with: 'a2@mail.com'
+    fill_in 'Password', with: '123123'
+    fill_in 'Password confirmation', with: '123123'
+    click_on 'Sign up'
+    expect(page).to have_content('Username has already been taken')
+  end
+
+  scenario 'creating a user with duplicate email' do
+    visit new_user_registration_path
+    fill_in 'Username', with: 'Oscar2'
+    fill_in 'user_fullname', with: 'Oscar Mier'
+    fill_in 'Email', with: 'oscar@mail.com'
     fill_in 'Password', with: '123123'
     fill_in 'Password confirmation', with: '123123'
     click_on 'Sign up'
     expect(page).to have_content('Email has already been taken')
   end
+  
 
   scenario 'user logs in successfully' do
     visit user_session_path
-    fill_in 'Email', with: 'a@mail.com'
+    fill_in 'Email', with: 'oscar@mail.com'
     fill_in 'Password', with: '123456'
     click_on 'Log in'
     expect(page).to have_content('Signed in successfully.')
@@ -43,10 +57,10 @@ RSpec.describe 'User session actions', type: :feature do
 
   scenario 'user logs out' do
     visit user_session_path
-    fill_in 'Email', with: 'a@mail.com'
+    fill_in 'Email', with: 'oscar@mail.com'
     fill_in 'Password', with: '123456'
     click_on 'Log in'
-    click_on 'Sign out'
+    find("a[href='#{destroy_user_session_path}']").click
     expect(page).to have_content('You need to sign in or sign up before continuing.')
   end
 end
