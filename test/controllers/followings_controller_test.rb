@@ -17,9 +17,9 @@ class FollowingsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create following' do
     assert_difference('Following.count') do
-      # rubocop:disable LineLength
+      # rubocop:disable Layout/LineLength
       post followings_url, params: { following: { Followedid: @following.Followedid, Followerid: @following.Followerid } }
-      # rubocop:enable LineLength
+      # rubocop:enable Layout/LineLength
     end
 
     assert_redirected_to following_url(Following.last)
@@ -36,9 +36,9 @@ class FollowingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update following' do
-    # rubocop:disable LineLength
+    # rubocop:disable Layout/LineLength
     patch following_url(@following), params: { following: { Followedid: @following.Followedid, Followerid: @following.Followerid } }
-    # rubocop:enable LineLength
+    # rubocop:enable Layout/LineLength
     assert_redirected_to following_url(@following)
   end
 
