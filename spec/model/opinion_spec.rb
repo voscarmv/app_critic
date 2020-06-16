@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Opinion, type: :model do
-  let(:user1) { User.new(username: 'oscar', email: 'oscar@mail.com', fullname: "Oscar Mier", password: '123456') }
-  let(:app1) { App.new(name: "Google docs", url: "docs.google.com", description: "For making DOCS.") }
+  let(:user1) { User.new(username: 'oscar', email: 'oscar@mail.com', fullname: 'Oscar Mier', password: '123456') }
+  let(:app1) { App.new(name: 'Google docs', url: 'docs.google.com', description: 'For making DOCS.') }
   subject { Opinion.new(text: 'Good app', author: user1, app: app1, sentiment: true) }
   it 'is valid with valid attributes' do
     expect(subject).to be_valid

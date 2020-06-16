@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { App.new(name: "Google docs", url: "docs.google.com", description: "For making DOCS.") }
+  subject { App.new(name: 'Google docs', url: 'docs.google.com', description: 'For making DOCS.') }
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
@@ -19,5 +19,4 @@ RSpec.describe User, type: :model do
     subject.description = nil
     expect(subject).to_not be_valid
   end
-
 end

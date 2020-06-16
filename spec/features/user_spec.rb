@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User session actions', type: :feature do
   before :each do
-    User.create(username: 'oscar', email: 'oscar@mail.com', fullname: "Oscar Mier", password: '123456')
+    User.create(username: 'oscar', email: 'oscar@mail.com', fullname: 'Oscar Mier', password: '123456')
   end
 
   scenario 'creating a user' do
@@ -37,7 +37,6 @@ RSpec.describe 'User session actions', type: :feature do
     click_on 'Sign up'
     expect(page).to have_content('Email has already been taken')
   end
-  
 
   scenario 'user logs in successfully' do
     visit user_session_path

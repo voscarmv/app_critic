@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates_presence_of :fullname
 
-  has_many :opinions, foreign_key: "authorid", class_name: "Opinion"  
+  has_many :opinions, foreign_key: 'authorid', class_name: 'Opinion'
 
   has_many :followers, foreign_key: :followedid, class_name: :Following
   has_many :follower_users, through: :followers
@@ -21,6 +21,6 @@ class User < ApplicationRecord
   has_one_attached :coverimage
 
   def whotofollows
-    User.where("id NOT IN (#{(self.followed_users.pluck('id') << self.id).join(', ')})")
+    User.where("id NOT IN (#{(followed_users.pluck('id') << id).join(', ')})")
   end
 end
