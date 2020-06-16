@@ -11,29 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :app_id %>
-    <%= form.select :app_id, @apps.collect { |app| [app.name, app.id] } %>
+  <div class="field form-group">
+    <%= form.label :app_id, class: "text-secondary text-uppercase" %>
+    <%= form.select :app_id, @apps.collect { |app| [app.name, app.id] }, {}, {class: "form-control"} %>
   </div>
 
   <div class="field">
-    <%= form.radio_button(:sentiment, true) %>
-    <%= form.label(:sentiment_true, "Positive") %>
-    <%= form.radio_button(:sentiment, false) %>
-    <%= form.label(:sentiment_false, "Negative") %>
+    <div class="form-check">
+    <%= form.radio_button :sentiment, true, class: "form-check-input" %>
+    <%= form.label :sentiment_true, "Positive", class: "form-check-label text-secondary text-uppercase" %>
+    </div>
+    <div class="form-check">
+    <%= form.radio_button :sentiment, false, class: "form-check-input" %>
+    <%= form.label :sentiment_false, "Negative", class: "form-check-label text-secondary text-uppercase" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :opinion, class: "control-label text-secondary text-uppercase" %>
+    <%= form.text_area :text, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :authorid %>
-    <%= form.text_field :authorid %>
+    <%= form.hidden_field :authorid %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "SUBMIT", class: "btn btn-primary" %>
   </div>
 <% end %>

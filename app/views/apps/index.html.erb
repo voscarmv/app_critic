@@ -1,35 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Apps</h1>
+    <div class="col-8 overflow-auto p-0">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th>Description</th>
-      <th>Positive</th>
-      <th>Negative</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <main class="position-absolute w-100 p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 bg-white border rounded">
+              <div class="p-3">
+                <h5 class="text-uppercase font-weight-bold text-secondary">Apps</h5>
 
-  <tbody>
-    <% @apps.each do |app| %>
-      <tr>
-        <td><%= app.name %></td>
-        <td><%= app.url %></td>
-        <td><%= app.description %></td>
-        <td><%= app.positive %> %</td>
-        <td><%= app.negative %> %</td>
-        <td><%= link_to 'Show', app %></td>
-        <td><%= link_to 'Edit', edit_app_path(app) %></td>
-        <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <% @apps.each do |app| %>
 
-<br>
 
-<%= link_to 'New App', new_app_path %>
+                  <div class="container-fluid p-0">
+                    <div class="row pb-5">
+                      <div class="col-12 pl-4">
+                        <div class="row">
+                          <div class="col-12"><%= link_to app.name, app %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12"><%= link_to app.url, "http://#{app.url}" %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">Positive: <%= app.positive %> %</div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">Negative: <%= app.negative %> %</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="col-4 overflow-auto p-0">
+      <aside class="position-absolute w-100 p-3">
+      </aside>
+    </div>

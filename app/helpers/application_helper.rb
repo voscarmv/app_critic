@@ -20,7 +20,7 @@ module ApplicationHelper
     if user.coverimage.attached?
       user.coverimage.variant(resize: "600x200!")
     else
-      "default_cover.jpeg"
+      "default_cover.jpg"
     end
   end
 end

@@ -1,48 +1,66 @@
 
-    <div class="col-8 bg-2 overflow-auto p-0">
-      <main class="bg-1 position-absolute w-100 p-5">
+    <div class="col-8 overflow-auto p-0">
+      <%= image_tag user_cover(current_user), size: "600x200", class: "cover-image" %>
 
-        <%= image_tag user_cover(current_user), size: "600x200" %>
+      <main class="position-absolute w-100 p-5">
 
-        <h1> Write a review </h1>
-        <%= render 'form', opinion: @opinion %>
-
-        <h1>Opinions</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>Content</th>
-              <th>User</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @opinions.each do |opinion| %>
-              <tr>
-                <td><%= opinion.text %></td>
-                <td><%= opinion.author.email %></td>
-                <td><%= link_to 'Show', opinion %></td>
-                <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-                <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-
+        <div class="container">
+          <div class="row pb-5">
+            <div class="col-12 bg-white border rounded">
+              <div class="p-3">
+              <h5 class="text-uppercase font-weight-bold text-secondary">Review an app</h5>
+              <%= render 'form', opinion: @opinion %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 bg-white border rounded">
+              <div class="p-3">
+                <h5 class="text-uppercase font-weight-bold text-secondary">App ratings</h5>
+                <% @opinions.each do |opinion| %>
+                  <div class="container-fluid p-0">
+                    <div class="row pb-5">
+                      <div class="col-1">
+                        <%= image_tag user_avatar(opinion.author, 50) %>
+                      </div>
+                      <div class="col-11 pl-4">
+                        <div class="row">
+                          <div class="col-12"><%= link_to opinion.author.username, opinion.author %> <% if opinion.app %> rated <%= link_to opinion.app.name, opinion.app %><% end %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">Opinion: <%= opinion.sentiment ? "Positive" : "Negative" %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12"><%= opinion.text %></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
-    <div class="col-4 bg-4 overflow-auto p-0">
-      <aside class="bg-2 position-absolute w-100 p-5">
-        <h1>Who to follow</h1>
+    <div class="col-4 overflow-auto p-0">
+      <aside class="position-absolute w-100 p-5">
+        <h5 class="text-uppercase font-weight-bold text-secondary">Who to follow</h5>
         <ul>
         <% @whotofollow.each do |user| %>
-          <li><%= link_to user.email, user %></li>
+          <div class="d-flex align-items-center pb-3">
+          <%= image_tag user_avatar(user, 50), class: "rounded-circle" %>
+          <span class="pl-3"><%= link_to user.username, user %><br><%= user.fullname %></span>
+          </div>
         <% end %>
         </ul>
-        <h2>People you follow</h2>
+        <h5 class="text-uppercase font-weight-bold text-secondary">People you follow</h5>
         <ul>
         <% @whoifollow.each do |user| %>
-          <li><%= link_to user.email, user %></li>
+          <div class="d-flex align-items-center pb-3">
+          <%= image_tag user_avatar(user, 50), class: "rounded-circle" %>
+          <span class="pl-3"><%= link_to user.username, user %><br><%= user.fullname %></span>
+          </div>
         <% end %>
         </ul>
       </aside>

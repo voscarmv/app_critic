@@ -23,6 +23,7 @@ gem 'devise'
 gem 'image_processing'
 gem 'cloudinary'
 gem 'figaro'
+gem 'font_awesome5_rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -50,6 +51,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  # gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 group :production do
