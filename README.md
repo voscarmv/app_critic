@@ -31,7 +31,7 @@ Check out the live demo [here](https://calm-hamlet-19158.herokuapp.com/)
 Make sure you [install Ruby](https://www.ruby-lang.org/en/documentation/installation/) and have the following packages installed before continuing:
 
 ```
-$ gem install bundler rspec foreman
+$ gem install bundler rspec 
 ```
 
 
