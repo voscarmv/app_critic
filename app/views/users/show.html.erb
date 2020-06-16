@@ -16,7 +16,7 @@
                       </div>
                       <div class="col-11 pl-4">
                         <div class="row">
-                          <div class="col-12"><%= opinion.author.email %> <% if opinion.app %> rated <%= opinion.app.name %><% end %></div>
+                          <div class="col-12"><%= link_to opinion.author.username, opinion.author %> <% if opinion.app %> rated <%= link_to opinion.app.name, opinion.app %><% end %></div>
                         </div>
                         <div class="row">
                           <div class="col-12">Opinion: <%= opinion.sentiment ? "Positive" : "Negative" %></div>
@@ -38,16 +38,18 @@
       <aside class="position-absolute w-100 p-3">
         <div class="d-flex align-items-center">
         <%= image_tag user_avatar(@user, 80), class: "rounded-circle" %>
-        <span class="pl-3"><%= @user.username %></span>
+        <span class="pl-3"><%= @user.fullname %></span>
         </div>
 
+        <% unless @user.username == current_user.username %>
         <div class="d-flex justify-content-center text-center pb-4 pt-4">
           <% if @user.follower_users.where(id: current_user.id).count > 0 %>
-            <%= link_to "Unfollow #{@user.email}", Following.find_by(followerid: current_user.id, followedid: @user.id), method: :delete, class: "btn btn-primary btn-sm text-white" %>
+            <%= link_to "Unfollow #{@user.username}", Following.find_by(followerid: current_user.id, followedid: @user.id), method: :delete, class: "btn btn-primary btn-sm text-white" %>
           <% else %>
-            <%= link_to "Follow #{@user.email}", followings_path(following: {followerid: current_user.id, followedid: @user.id }), method: :post, class: "btn btn-primary btn-sm text-white" %>
+            <%= link_to "Follow #{@user.username}", followings_path(following: {followerid: current_user.id, followedid: @user.id }), method: :post, class: "btn btn-primary btn-sm text-white" %>
           <% end %>
         </div>
+        <% end %>
 
         <div class="container-fluid pb-4">
           <div class="row">
@@ -68,7 +70,7 @@
         <% @user.follower_users.each do |user| %>
           <div class="d-flex align-items-center pb-3">
           <%= image_tag user_avatar(user, 50), class: "rounded-circle" %>
-          <span class="pl-3"><%= link_to user.username, root_path %></span>
+          <span class="pl-3"><%= link_to user.username, user %><br><%= user.fullname %></span>
           </div>
         <% end %>
 

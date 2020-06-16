@@ -28,7 +28,7 @@ class AppsController < ApplicationController
 
     respond_to do |format|
       if @app.save
-        format.html { redirect_to @app, notice: 'App was successfully created.' }
+        format.html { redirect_to root_path, notice: 'App was successfully created.' }
         format.json { render :show, status: :created, location: @app }
       else
         format.html { render :new }

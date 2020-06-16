@@ -1,4 +1,9 @@
 class App < ApplicationRecord
+
+  validates_presence_of :name
+  validates_presence_of :url
+  validates_presence_of :description
+
   has_many :opinions
 
   def positive

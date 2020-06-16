@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <%= form.label :name, class: "text-secondary text-uppercase"  %>
+    <%= form.text_field :name, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+  <div class="field form-group">
+    <%= form.label :url, class: "text-secondary text-uppercase"  %> (without http://)
+    <%= form.text_field :url, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field form-group">
+    <%= form.label :description, class: "text-secondary text-uppercase"  %>
+    <%= form.text_area :description, class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Add new app", class: "btn btn-primary"  %>
   </div>
 <% end %>
