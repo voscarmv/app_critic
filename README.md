@@ -69,7 +69,6 @@ test:
 
 ```
 
-
 ### Run tests
 
 Running `rspec` will test AppCritic's functionalities. Navigate the `spec` directory to find out how the tests are performed.
