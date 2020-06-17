@@ -9,13 +9,13 @@ class App < ApplicationRecord
     totalopinions = opinions.count.to_f
     return 0 if totalopinions.zero?
 
-    format('%<percentage>.2f', (100 * opinions.where(sentiment: true).count.to_f / totalopinions))
+    format('%.2f', (100 * opinions.where(sentiment: true).count.to_f / totalopinions))
   end
 
   def negative
     totalopinions = opinions.count.to_f
     return 0 if totalopinions.zero?
 
-    format('%<percentage>.2f', (100 * opinions.where(sentiment: false).count.to_f / totalopinions))
+    format('%.2f', (100 * opinions.where(sentiment: false).count.to_f / totalopinions))
   end
 end
