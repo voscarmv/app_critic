@@ -23,34 +23,32 @@ RSpec.describe App, type: :model do
   end
 
   it 'should return 0% positive feedback with 0 opinions' do
-    # Opinion.new(text: 'Good app', author: user1, app: app1, sentiment: true) }
     expect(subject.positive).to eq(0)
   end
 
   it 'should return 0% negative feedback with 0 opinions' do
-    # Opinion.new(text: 'Good app', author: user1, app: app1, sentiment: true) }
     expect(subject.negative).to eq(0)
   end
 
   it 'should return 100% positive feedback with 1 positive opinion' do
-    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: true) 
-    expect(subject.positive).to eq("100.00")
+    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: true)
+    expect(subject.positive).to eq('100.00')
   end
 
   it 'should return 100% negative feedback with 1 negative opinion' do
-    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: false) 
-    expect(subject.negative).to eq("100.00")
+    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: false)
+    expect(subject.negative).to eq('100.00')
   end
 
   it 'should return 50% negative feedback with 1 negative opinion and 1 positive opinion' do
-    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: true) 
-    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: false) 
-    expect(subject.negative).to eq("50.00")
+    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: true)
+    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: false)
+    expect(subject.negative).to eq('50.00')
   end
 
   it 'should return 50% positive feedback with 1 negative opinion and 1 positive opinion' do
-    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: true) 
-    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: false) 
-    expect(subject.negative).to eq("50.00")
+    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: true)
+    subject.opinions.create(text: 'Good app', author: user1, app: app1, sentiment: false)
+    expect(subject.positive).to eq('50.00')
   end
 end
