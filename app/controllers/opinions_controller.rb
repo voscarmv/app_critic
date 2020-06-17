@@ -4,7 +4,7 @@ class OpinionsController < ApplicationController
   # GET /opinions/new
   def new
     @opinion = Opinion.new(authorid: current_user.id)
-    @opinions = Opinion.includes(:author).all
+    @opinions = Opinion.order(created_at: :desc).includes(:author).includes(:app).all
     @apps = App.all
     @whotofollow = current_user.whotofollows
     @whoifollow = current_user.followed_users

@@ -6,7 +6,7 @@ This is an MVP version of twitter. I've adapted it to share opinions about speci
 
 # Video Presentation
 
-Check out the video presentation for this project [here](https://www.youtube.com/watch?v=JRcv-oCJUrU)!
+Check out the video presentation for this project [here](https://youtu.be/kzKFd2JS-H0)!
 
 # Screenshots
 
