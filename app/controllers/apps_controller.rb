@@ -16,9 +16,6 @@ class AppsController < ApplicationController
     @app = App.new
   end
 
-  # GET /apps/1/edit
-  def edit; end
-
   # POST /apps
   # POST /apps.json
   def create
@@ -32,30 +29,6 @@ class AppsController < ApplicationController
         format.html { render :new }
         format.json { render json: @app.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /apps/1
-  # PATCH/PUT /apps/1.json
-  def update
-    respond_to do |format|
-      if @app.update(app_params)
-        format.html { redirect_to @app, notice: 'App was successfully updated.' }
-        format.json { render :show, status: :ok, location: @app }
-      else
-        format.html { render :edit }
-        format.json { render json: @app.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /apps/1
-  # DELETE /apps/1.json
-  def destroy
-    @app.destroy
-    respond_to do |format|
-      format.html { redirect_to apps_url, notice: 'App was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

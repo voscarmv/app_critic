@@ -2,7 +2,7 @@
 
 > An app for sharing criticism and ratings of apps.
 
-This is an MVP version of twitter. I've adapted it to share opinion about specific apps. User can add a new app for everyone to critique, they can follow eachother as well.
+This is an MVP version of twitter. I've adapted it to share opinions about specific apps. Users can add a new app for everyone to critique, and they can follow eachother as well.
 
 # Video Presentation
 
@@ -37,14 +37,14 @@ $ gem install bundler rspec
 
 ### Install
 
-To test Stackbot locally, clone the repository, navigate to it's containing directory, and run:
+To test AppCritic locally, clone the repository, navigate to it's containing directory, and run:
 
 ```
 $ bundle install
-$ ruby db:migrate
+$ rails db:migrate
 ```
 
-This should install all ruby gems. Make sure you also have a proper `application.yml` file with your [Cloudinary]() credentials. Example:
+This should install all ruby gems. Make sure you also have a proper `application.yml` file with your [Cloudinary](https://cloudinary.com/documentation/rails_integration) credentials. Example:
 
 ```
 ---
