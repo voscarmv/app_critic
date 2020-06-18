@@ -1,0 +1,23 @@
+
+    <div class="col-8 overflow-auto p-0">
+      <main class="position-absolute w-100 p-5">
+        <h2>Forgot your password?</h2>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </main>
+    </div>
+    <div class="col-4 overflow-auto p-0">
+      <aside class="position-absolute w-100 p-5">
+      </aside>
+    </div>

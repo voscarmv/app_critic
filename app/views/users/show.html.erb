@@ -1,0 +1,78 @@
+
+    <div class="col-8 overflow-auto p-0">
+      <%= image_tag user_cover(@user), size: "600x200", class: "cover-image" %>
+
+      <main class="position-absolute w-100 p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 bg-white border rounded">
+              <div class="p-3">
+                <h5 class="text-uppercase font-weight-bold text-secondary">App ratings</h5>
+                <% @opinions.each do |opinion| %>
+                  <div class="container-fluid p-0">
+                    <div class="row pb-5">
+                      <div class="col-1">
+                        <%= image_tag user_avatar(opinion.author, 50) %>
+                      </div>
+                      <div class="col-11 pl-4">
+                        <div class="row">
+                          <div class="col-12"><%= link_to opinion.author.username, opinion.author %> <% if opinion.app %> rated <%= link_to opinion.app.name, opinion.app %><% end %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">Opinion: <%= opinion.sentiment ? "Positive" : "Negative" %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12"><%= opinion.text %></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="col-4 overflow-auto p-0">
+      <aside class="position-absolute w-100 p-3">
+        <div class="d-flex align-items-center">
+        <%= image_tag user_avatar(@user, 80), class: "rounded-circle" %>
+        <span class="pl-3"><%= @user.fullname %></span>
+        </div>
+
+        <% unless @user.username == current_user.username %>
+        <div class="d-flex justify-content-center text-center pb-4 pt-4">
+          <% if @user.follower_users.where(id: current_user.id).count > 0 %>
+            <%= link_to "Unfollow #{@user.username}", Following.find_by(followerid: current_user.id, followedid: @user.id), method: :delete, class: "btn btn-primary btn-sm text-white" %>
+          <% else %>
+            <%= link_to "Follow #{@user.username}", followings_path(following: {followerid: current_user.id, followedid: @user.id }), method: :post, class: "btn btn-primary btn-sm text-white" %>
+          <% end %>
+        </div>
+        <% end %>
+
+        <div class="container-fluid pb-4">
+          <div class="row">
+            <div class="col-4 flex-column justify-content-center text-center p-2">
+            <div class="text-uppercase font-weight-bold text-secondary">Opinions</div><%= @user.opinions.count %>
+            </div>
+            <div class="col-4 flex-column justify-content-center text-center p-2">
+            <div class="text-uppercase font-weight-bold text-secondary">Followers</div><%= @user.follower_users.count %>
+            </div>
+            <div class="col-4 flex-column justify-content-center text-center p-2">
+            <div class="text-uppercase font-weight-bold text-secondary">Following</div><%= @user.followed_users.count %>
+            </div>
+          </div>
+        </div>
+
+        <h5 class="text-uppercase font-weight-bold text-secondary">Followed by</h5>
+
+        <% @user.follower_users.each do |user| %>
+          <div class="d-flex align-items-center pb-3">
+          <%= image_tag user_avatar(user, 50), class: "rounded-circle" %>
+          <span class="pl-3"><%= link_to user.username, user %><br><%= user.fullname %></span>
+          </div>
+        <% end %>
+
+      </aside>
+    </div>

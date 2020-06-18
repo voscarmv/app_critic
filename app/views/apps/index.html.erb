@@ -1,0 +1,44 @@
+
+    <div class="col-8 overflow-auto p-0">
+
+      <main class="position-absolute w-100 p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 bg-white border rounded">
+              <div class="p-3">
+                <h5 class="text-uppercase font-weight-bold text-secondary">Apps</h5>
+
+                <% @apps.each do |app| %>
+
+
+                  <div class="container-fluid p-0">
+                    <div class="row pb-5">
+                      <div class="col-12 pl-4">
+                        <div class="row">
+                          <div class="col-12"><%= link_to app.name, app %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12"><%= link_to app.url, "http://#{app.url}" %></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">Positive: <%= app.positive %> %</div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">Negative: <%= app.negative %> %</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="col-4 overflow-auto p-0">
+      <aside class="position-absolute w-100 p-3">
+      </aside>
+    </div>

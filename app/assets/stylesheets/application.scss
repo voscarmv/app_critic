@@ -1,0 +1,108 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
+
+.bg-1 {
+  background-color: #f00;
+}
+
+.bg-2 {
+  background-color: #0f0;
+}
+
+.bg-3 {
+  background-color: #00f;
+}
+
+.bg-4 {
+  background-color: #ff0;
+}
+
+.bg-5 {
+  background-color: #0ff;
+}
+
+.bg-6 {
+  background-color: #f0f;
+}
+
+/*
+
+nav gradient
+nav bottom bg #4199D9
+nav top bg #5DAEED
+
+left aside #213246
+
+background #F5F6F8
+
+*/
+
+html,
+body,
+.height-100 {
+  height: 100%;
+}
+
+.flex-fill {
+  flex: 1;
+}
+
+.bg-nav {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(93, 174, 237, 1) 100%);
+}
+
+.bg-left-aside {
+  background-color: #213246;
+}
+
+.bg-main {
+  background-color: #f5f6f8;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.cover-image {
+  width: 100%;
+  height: auto;
+}
+
+/* change the background color */
+// .navbar-custom {
+//   background-color: #ff5500;
+// }
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #fff;
+}
