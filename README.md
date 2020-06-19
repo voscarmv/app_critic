@@ -75,7 +75,7 @@ Running `rspec` will test AppCritic's functionalities. Navigate the `spec` direc
 
 ### Deployment
 
-You may deploy Stackbot on Heroku by running the following commands in the repo directory:
+You may deploy AppCritic on Heroku by running the following commands in the repo directory:
 
 ```
 $ heroku create
