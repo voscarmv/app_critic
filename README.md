@@ -91,6 +91,12 @@ $ heroku open
 - Twitter: [@voscarmv](https://twitter.com/voscarmv)
 - Linkedin: [Oscar Mier](https://www.linkedin.com/in/oscar-mier-072984196/) 
 
+## Future features and improvements
+
+- Add Instant Messaging.
+- Add user tagging.
+- Add rich text posts with images (to share memes).
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
